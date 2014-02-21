@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+         version="2.4">
+    <display-name>
+        DU7
+    </display-name>
+    <servlet>
+        <servlet-name>first</servlet-name>
+        <servlet-class>Page1</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>second</servlet-name>
+        <servlet-class>Page2</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>third</servlet-name>
+        <servlet-class>Page3</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>fourth</servlet-name>
+        <servlet-class>Page4</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>first</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+	
+    <servlet-mapping>
+        <servlet-name>second</servlet-name>
+        <url-pattern>/second</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>third</servlet-name>
+        <url-pattern>/third</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>fourth</servlet-name>
+        <url-pattern>/fourth</url-pattern>
+    </servlet-mapping>
+</web-app>
