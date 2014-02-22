@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -34,6 +35,8 @@ public class Page4 extends HttpServlet {
         //jazykove mutacie:
         String back  = "", pw ="" ;
         
+        Cookie c = new Cookie("page", "3");
+        response.addCookie(c);
         
         HttpSession sessionB = request.getSession();
         

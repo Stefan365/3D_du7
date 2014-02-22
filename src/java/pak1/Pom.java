@@ -26,7 +26,7 @@ public class Pom {
      *
      */
     public static String spracujSessionA(HttpSession mySession, HttpServletRequest request) {
-        volba = "cz";
+        volba = "cz"; //default, kvoli obideniu vynimiek
 
         volba = request.getParameter("jaz");
 

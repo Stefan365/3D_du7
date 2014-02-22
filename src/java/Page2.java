@@ -3,7 +3,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,20 +26,23 @@ public class Page2 extends HttpServlet {
 
         Locale fLocale; //finalne Locale
 
-        String firstname = "", surname = "", password = "", send="", back ="";
+        String firstname = "", surname = "", password = "", send="";
 
         HttpSession sessionA = request.getSession();
         String volba = Pom.spracujSessionA(sessionA, request);
         fLocale = Pom.getLocale(volba);
         
-        sessionA.setAttribute("page", "3");
+        
+        Cookie c = new Cookie("page", "3");
+        response.addCookie(c);
+        
+        //sessionA.setAttribute("page", "3");
         
         ResourceBundle fTexty = ResourceBundle.getBundle("Texty", fLocale);
         firstname = "" + fTexty.getString("name");
         surname = "" + fTexty.getString("surname");
         password = "" + fTexty.getString("password");
         send =  "" + fTexty.getString("send");
-        back =  "" + fTexty.getString("back");
 
         // příprava odpovědi pro klienta
         response.setContentType("text/html");
