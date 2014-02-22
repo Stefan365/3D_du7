@@ -36,9 +36,8 @@ public class Page4 extends HttpServlet {
         
         
         HttpSession sessionB = request.getSession();
-        //String volba = Pom.spracujSessionA(sessionB, request);
+        
         fLocale = Pom.getLocale((String)sessionB.getAttribute("jazyk"));
-        //Pom.spracujSessionB(sessionB, request);
         
         password = "" + sessionB.getAttribute("password");
         
@@ -58,7 +57,6 @@ public class Page4 extends HttpServlet {
         Pom.printHead(out);
         Pom.printCSS(out);
         
-        //out.println(firstname + " " + surname + ", " + choice  + " : " + volba);
         out.println("</head>");
         
         out.println("<body>");

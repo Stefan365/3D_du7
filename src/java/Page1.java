@@ -31,8 +31,7 @@ public class Page1 extends HttpServlet {
         String volba = request.getParameter("jaz");
 
         if (volba == null || volba.equals("")) {
-            //neudelej nic:
-            //volba = (String)sessionA.getAttribute("jazyk");
+            //neudelej nic
         } else {
             HttpSession sessionA = request.getSession();
             sessionA.setAttribute("jazyk", volba);

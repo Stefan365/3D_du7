@@ -68,11 +68,6 @@ public class Page2 extends HttpServlet {
         out.println("</p>");
         out.println("</form>");
 
-        //odakz na stranku zpet:
-        //out.println("<div id=\"podpaticka\">");
-        //out.println("<a href=\"http://localhost:8080/DU7/\">" + back + "</a>");
-        //out.println("</div>");
-
         out.println("</body>");
         out.println("</html>");
 

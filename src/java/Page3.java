@@ -32,7 +32,8 @@ public class Page3 extends HttpServlet {
 
         request.setCharacterEncoding("utf-8");
         
-        Locale fLocale; //finalne Locale
+        //finalne Locale:
+        Locale fLocale; 
         
         String firstname = "", surname = "", password = "", volba="";
         //jazykove mutacie:
