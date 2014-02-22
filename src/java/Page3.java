@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import pak1.Pom;
 import static java.text.DateFormat.*;
 import java.text.NumberFormat;
+import javax.servlet.RequestDispatcher;
 
 /*
  * To change this template, choose Tools | Templates and open the template in
@@ -35,11 +36,22 @@ public class Page3 extends HttpServlet {
         
         String firstname = "", surname = "", password = "", volba="";
         //jazykove mutacie:
-        String datum = "", next  = "", pw_l = "", choice ="", pw="";
+        String datum = "", pw_l = "", choice ="", pw="";
         
         
         HttpSession sessionB = request.getSession();
-        //String volba = Pom.spracujSessionA(sessionB, request);
+        
+        //nastavenie presmerovania:
+        String location = "" + sessionB.getAttribute("page");
+        if (location.equals("3")){
+            sessionB.setAttribute("page","4");
+        } else {
+            sessionB.setAttribute("page","3");
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/fourth");
+            rd.forward(request, response);
+        }
+        
+        
         fLocale = Pom.getLocale((String)sessionB.getAttribute("jazyk"));
         Pom.spracujSessionB(sessionB, request);
         
@@ -51,7 +63,6 @@ public class Page3 extends HttpServlet {
         //na zobrazenie datumu:
         ResourceBundle fTexty = ResourceBundle.getBundle("Texty", fLocale);
         datum = "" + fTexty.getString("date");
-        next = "" + fTexty.getString("next");
         pw_l = "" + fTexty.getString("pw_length");
         choice = "" + fTexty.getString("choice");
         pw = "" + fTexty.getString("password");
@@ -93,7 +104,7 @@ public class Page3 extends HttpServlet {
         out.println("</div>");
         
         out.println("<div id=\"podmenu\">");
-        out.println("<a href=\"http://localhost:8080/DU7/fourth\">" + pw + "</a>");
+        out.println("<a href=\"http://localhost:8080/DU7/third\">" + pw + "</a>");
         out.println("</div>");
 
         out.println("</body>");

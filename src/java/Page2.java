@@ -30,6 +30,8 @@ public class Page2 extends HttpServlet {
         String volba = Pom.spracujSessionA(sessionA, request);
         fLocale = Pom.getLocale(volba);
         
+        sessionA.setAttribute("page", "3");
+        
         ResourceBundle fTexty = ResourceBundle.getBundle("Texty", fLocale);
         firstname = "" + fTexty.getString("name");
         surname = "" + fTexty.getString("surname");
@@ -46,7 +48,7 @@ public class Page2 extends HttpServlet {
         
         Pom.printHead(out);
         Pom.printCSS(out);
-        
+ 
         out.println("</head>");
         out.println("<body>");
 

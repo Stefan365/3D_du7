@@ -120,6 +120,7 @@ public class Pom {
         firstname = request.getParameter("firstname");
         surname = request.getParameter("surname");
         password = request.getParameter("password");
+        
         if (!(firstname == null || firstname.equals(""))) {
             sessionB.setAttribute("firstname", firstname);
         }
