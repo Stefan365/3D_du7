@@ -61,6 +61,7 @@ public class Pom {
             + "<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"cs\">\n"
             + "    <head>\n"
             + "        <meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"/>\n"
+            + "        <link href=\"newcss.css\" rel=\"stylesheet\" type=\"text/css\" />"
             + "        <title>DU7</title>\n");
     }
 

@@ -71,6 +71,7 @@ public class Page4 extends HttpServlet {
         //odkaz na stranku zpet:
         out.println("<div id=\"paticka\">");
         out.println("<a href=\"http://localhost:8080/DU7/third\">" + back + "</a>");
+        //out.println("<a href=\"third\">" + back + "</a>");
         out.println("</div>");
 
         out.println("</body>");

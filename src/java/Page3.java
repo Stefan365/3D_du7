@@ -114,6 +114,7 @@ public class Page3 extends HttpServlet {
 
         out.println("<div id=\"podmenu\">");
         out.println("<a href=\"http://localhost:8080/DU7/third\">" + pw + "</a>");
+        //out.println("<a href=\"third\">" + pw + "</a>");
         out.println("</div>");
 
         /*
