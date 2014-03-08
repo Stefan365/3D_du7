@@ -11,10 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import pak1.Pom;
 
-/*
- * To change this template, choose Tools | Templates and open the template in
- * the editor.
- */
+
 /**
  * Použití cookies pro počítání přístupů daného klienta na webový server.
  *
@@ -39,9 +36,7 @@ public class Page4 extends HttpServlet {
         response.addCookie(c);
         
         HttpSession sessionB = request.getSession();
-        
         fLocale = Pom.getLocale((String)sessionB.getAttribute("jazyk"));
-        
         password = "" + sessionB.getAttribute("password");
         
         //na zobrazenie datumu:
@@ -67,13 +62,14 @@ public class Page4 extends HttpServlet {
         out.println("<div id=\"menu\">");
         out.println(pw + " : " + password);
         out.println("</div>");
-
-        //odkaz na stranku zpet:
+        
+        //ODOSIELACIE TLACITKO:
         out.println("<div id=\"paticka\">");
-        out.println("<a href=\"http://localhost:8080/DU7/third\">" + back + "</a>");
-        //out.println("<a href=\"third\">" + back + "</a>");
+        out.println("<form action = \"third\" method = \"post\">");
+        out.println("<input type=\"submit\" name=\"page\" value=\"" + back + "\" />");
+        out.println("</form>");
         out.println("</div>");
-
+        
         out.println("</body>");
         out.println("</html>");
 

@@ -13,7 +13,6 @@ import pak1.Pom;
 import static java.text.DateFormat.*;
 import java.text.NumberFormat;
 import javax.servlet.RequestDispatcher;
-import javax.servlet.http.Cookie;
 
 /*
  * To change this template, choose Tools | Templates and open the template in
@@ -41,29 +40,6 @@ public class Page3 extends HttpServlet {
         String datum = "", pw_l = "", choice = "", pw = "";
 
         HttpSession sessionB = request.getSession();
-
-        //int location = (Integer) request.getAttribute("page");
-        Cookie[] cookies = request.getCookies();
-
-        String location = "";
-
-        int k;
-        for (int i = 0; i < cookies.length; i++ ) {
-            if (cookies[i].getName().equals("page")) {
-                location = "" + cookies[i].getValue();
-                k = i;
-            }
-        }
-
-        //nastavenie presmerovania:
-        if (location.equals("3")) {
-            Cookie c = new Cookie("page", "4");
-            response.addCookie(c);
-        } else if (location.equals("4")) {
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/fourth");
-            rd.forward(request, response);
-        }
-
         fLocale = Pom.getLocale((String) sessionB.getAttribute("jazyk"));
         Pom.spracujSessionB(sessionB, request);
 
@@ -78,7 +54,14 @@ public class Page3 extends HttpServlet {
         pw_l = "" + fTexty.getString("pw_length");
         choice = "" + fTexty.getString("choice");
         pw = "" + fTexty.getString("password");
-
+        
+        //Dispatcher:
+        String location = "" +  request.getParameter("page");
+        if (location.equals(pw)) {
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/fourth");
+            rd.forward(request, response);
+        }
+        
         int dlzka_ret = 8 * password.getBytes().length;
         NumberFormat nf = NumberFormat.getInstance(fLocale);
 
@@ -111,17 +94,16 @@ public class Page3 extends HttpServlet {
         out.println("<div id=\"podpaticka\">");
         out.println(datum + " : " + d);
         out.println("</div>");
-
+        
+        //ODOSIELACIE TLACITKO:
         out.println("<div id=\"podmenu\">");
-        out.println("<a href=\"http://localhost:8080/DU7/third\">" + pw + "</a>");
+        out.println("<form action = \"third\" method = \"post\">");
+        out.println("<input type=\"submit\" name=\"page\" value=\"" + pw + "\" />");
+        out.println("</form>");
+        //out.println("<a href=\"http://localhost:8080/DU7/third\">" + pw + "</a>");
         //out.println("<a href=\"third\">" + pw + "</a>");
         out.println("</div>");
 
-        /*
-         out.println("<div id=\"paticka\">");
-         out.println("<a href=\"http://localhost:8080/DU7/second\">" + "BACK" + "</a>");
-         out.println("</div>");
-         */
         out.println("</body>");
         out.println("</html>");
 
