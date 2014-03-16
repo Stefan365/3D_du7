@@ -14,10 +14,6 @@ import static java.text.DateFormat.*;
 import java.text.NumberFormat;
 import javax.servlet.RequestDispatcher;
 
-/*
- * To change this template, choose Tools | Templates and open the template in
- * the editor.
- */
 /**
  * Použití cookies pro počítání přístupů daného klienta na webový server.
  *
@@ -35,13 +31,13 @@ public class Page3 extends HttpServlet {
         //finalne Locale:
         Locale fLocale;
 
-        String firstname = "", surname = "", password = "", volba = "";
+        String firstname, surname, password, volba;
         //jazykove mutacie:
-        String datum = "", pw_l = "", choice = "", pw = "";
+        String datum, pw_l, choice, pw;
 
         HttpSession sessionB = request.getSession();
         fLocale = Pom.getLocale((String) sessionB.getAttribute("jazyk"));
-        Pom.spracujSessionB(sessionB, request);
+        Pom.nastavAtributy(sessionB, request);
 
         firstname = "" + sessionB.getAttribute("firstname");
         surname = "" + sessionB.getAttribute("surname");

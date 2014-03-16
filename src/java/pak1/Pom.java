@@ -11,23 +11,21 @@ import javax.servlet.http.HttpSession;
  */
 public class Pom {
 
-    public static String volba; //= "cz";
+    public static String volba; 
     private static Locale cestina = new Locale("cs", "CZ");
     private static Locale usa = Locale.US;
     private static Locale uk = Locale.UK;
-    private static String firstname = "", surname = "", password = "";
+    private static String firstname, surname, password;
 
     /**
-     * Spracuje session zoznam cookies a nastavi farbu pisma, pozadia a velkost
-     * pisma.
+     * Nastavi session atributy.
      *
-     * @param mySiteCookies cookies od klienta.
-     * @param response pripravovana odpoved.
+     * @param mySession klientuv session.
+     * @param request pozadavek od klienta.
      *
      */
-    public static String spracujSessionA(HttpSession mySession, HttpServletRequest request) {
-        volba = "cz"; //default, kvoli obideniu vynimiek
-
+    public static String nastavJazyk(HttpSession mySession, HttpServletRequest request) {
+       
         volba = request.getParameter("jaz");
 
         if (volba == null || volba.equals("")) {
@@ -66,6 +64,7 @@ public class Pom {
     }
 
     public static void printCSS(PrintWriter out) {
+        
         out.println("<style type=\"text/css\">\n"
             + "body{\n"
             + "	background-color: #eef;\n"
@@ -114,9 +113,17 @@ public class Pom {
             + "bottom:30px;\n"
             + "left: 40px \n"
             + "} </style>");
+            
     }
 
-    public static void spracujSessionB(HttpSession sessionB, HttpServletRequest request) {
+    /**
+     * Nastavi session atributy.
+     *
+     * @param sessionB klientuv session.
+     * @param request pozadavek od klienta.
+     *
+     */
+    public static void nastavAtributy(HttpSession sessionB, HttpServletRequest request) {
 
         firstname = request.getParameter("firstname");
         surname = request.getParameter("surname");

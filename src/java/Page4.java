@@ -28,9 +28,9 @@ public class Page4 extends HttpServlet {
 
         Locale fLocale; //finalne Locale
         
-        String password = "";
+        String password;
         //jazykove mutacie:
-        String back  = "", pw ="" ;
+        String back, pw;
         
         Cookie c = new Cookie("page", "3");
         response.addCookie(c);

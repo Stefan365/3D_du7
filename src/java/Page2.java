@@ -29,14 +29,12 @@ public class Page2 extends HttpServlet {
         String firstname = "", surname = "", password = "", send="";
 
         HttpSession sessionA = request.getSession();
-        String volba = Pom.spracujSessionA(sessionA, request);
+        String volba = Pom.nastavJazyk(sessionA, request);
         fLocale = Pom.getLocale(volba);
         
         
         Cookie c = new Cookie("page", "3");
         response.addCookie(c);
-        
-        //sessionA.setAttribute("page", "3");
         
         ResourceBundle fTexty = ResourceBundle.getBundle("Texty", fLocale);
         firstname = "" + fTexty.getString("name");
