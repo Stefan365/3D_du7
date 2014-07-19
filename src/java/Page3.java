@@ -17,7 +17,7 @@ import javax.servlet.RequestDispatcher;
 /**
  * Použití cookies pro počítání přístupů daného klienta na webový server.
  *
- * @author Jaroslav Srp
+ * @author Stefan Veres
  */
 public class Page3 extends HttpServlet {
 
@@ -96,7 +96,7 @@ public class Page3 extends HttpServlet {
         out.println("<form action = \"third\" method = \"post\">");
         out.println("<input type=\"submit\" name=\"page\" value=\"" + pw + "\" />");
         out.println("</form>");
-        //out.println("<a href=\"http://localhost:8080/DU7/third\">" + pw + "</a>");
+        //out.println("<a href=\"http://localhost:8080/SEM_PRACE/third\">" + pw + "</a>");
         //out.println("<a href=\"third\">" + pw + "</a>");
         out.println("</div>");
 

@@ -3,7 +3,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Locale;
 import java.util.ResourceBundle;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +14,7 @@ import pak1.Pom;
 /**
  * Použití cookies pro počítání přístupů daného klienta na webový server.
  *
- * @author Jaroslav Srp
+ * @author Stefan Veres
  */
 public class Page2 extends HttpServlet {
 
